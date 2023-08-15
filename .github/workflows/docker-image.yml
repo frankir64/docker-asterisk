@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
-    - name: Build docker images
-      run: make build_mini
+    - uses: uraimo/run-on-arch-action@v2
+      name: Build docker images
+      with:
+          arch: armv7
+          distro: ubuntu18.04
+          run: make build_mini
 
     - name: Run tests
       shell: 'script -q -e -c "bash {0}"'
