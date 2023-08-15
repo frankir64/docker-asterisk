@@ -15,7 +15,7 @@ jobs:
       name: Build docker images
       with:
           arch: armv7
-          distro: ubuntu-latest
+          distro: ubuntu18.04
           run: make build_mini
 
     - name: Run tests
